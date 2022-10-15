@@ -1,7 +1,10 @@
 import { Router } from "express";
 import {GetAllBooks, GetBookById, CreateNewBook, UpdateBook, DeleteBook} 
     from '../Controllers/booksController.js'
+import { CreateNewCategorie, GetAllCategories, GetCategorieById, UpdateCategorie, DeleteCategorie } 
+    from "../Controllers/categoriesController.js";
 import {validateBook, validateCreate} from '../Validators/books.js'
+import {validateCategorie} from '../Validators/categories.js'
 
 const router = Router()
 
@@ -26,5 +29,16 @@ router.delete('/books/:id', DeleteBook)
 // router.put('/books/:id', UpdateAuthor)
 
 // router.delete('/books/:id', DeleteAuthor)
+
+//Categories
+router.get('/categories', GetAllCategories)
+
+router.get('/categories/:id', GetCategorieById)
+
+router.post('/categories', validateCategorie, CreateNewCategorie)
+
+router.put('/categories/:id', validateCategorie, UpdateCategorie)
+
+router.delete('/categories/:id', DeleteCategorie)
 
 export default router;

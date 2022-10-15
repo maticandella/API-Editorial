@@ -11,5 +11,17 @@ export const messages = {
 
     //Delete
     bookDeleteOk: 'Libro eliminado con éxito.',
-    bookDeleteFail: 'El Libro que intenta eliminar no existe.'
+    bookDeleteFail: 'El Libro que intenta eliminar no existe.',
+
+//Categories
+    //Post 
+    categoriePostOk: 'Categoría incorporada con éxito.',
+
+    //Put
+    categoriePutOk: 'Categoría modificada con éxito.',
+    categoriePutFail: 'La Categoría que intenta modificar no existe.',
+
+    //Delete
+    categorieDeleteOk: 'Categoria eliminada con éxito.',
+    categorieDeleteFail: 'La Categoria que intenta eliminar no existe.',
 }

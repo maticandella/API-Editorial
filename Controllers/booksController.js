@@ -54,7 +54,6 @@ export const CreateNewBook = async (req, res) => {
         .input("idUsuario", sql.Int, idUsuario)
         .query(queries.createNewBook)
 
-        //Obtener el ID generado --> Ver como hacer
         res.status(resCodes.Created).send(messages.bookPostOk)
         pool.close()
     } catch (error) {
