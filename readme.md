@@ -8,11 +8,11 @@ En este proyecto iré volcando todos los conocimientos adquiridos en torno a Nod
 
 ## Construido con 🛠️
 
-* [Node.js]
-* [Express]
-* [Express-validator]
-* [Mssql]
-* [Dotenv]
+* Node.js
+* Express
+* Express-validator
+* Mssql
+* Dotenv
 
 ## Autor ✒️
 
