@@ -3,8 +3,11 @@ import {GetAllBooks, GetBookById, CreateNewBook, UpdateBook, DeleteBook}
     from '../Controllers/booksController.js'
 import { CreateNewCategorie, GetAllCategories, GetCategorieById, UpdateCategorie, DeleteCategorie } 
     from "../Controllers/categoriesController.js";
+import { GetAllAuthors, GetAuthorById, CreateNewAuthor, UpdateAuthor, DeleteAuthor } 
+    from "../Controllers/authorsController.js";
 import {validateBook, validateCreate} from '../Validators/books.js'
 import {validateCategorie} from '../Validators/categories.js'
+import {validateAuthor} from "../Validators/authors.js";
 
 const router = Router()
 
@@ -20,15 +23,15 @@ router.put('/books/:id', validateBook, UpdateBook)
 router.delete('/books/:id', DeleteBook)
 
 //Authors
-// router.get('/books', GetAllAuthors)
+router.get('/authors', GetAllAuthors)
 
-// router.get('/books/:id', GetAuthorById)
+router.get('/authors/:id', GetAuthorById)
 
-// router.post('/books', CreateNewAuthor)
+router.post('/authors', validateAuthor, CreateNewAuthor)
 
-// router.put('/books/:id', UpdateAuthor)
+router.put('/authors/:id', validateAuthor, UpdateAuthor)
 
-// router.delete('/books/:id', DeleteAuthor)
+router.delete('/authors/:id', DeleteAuthor)
 
 //Categories
 router.get('/categories', GetAllCategories)

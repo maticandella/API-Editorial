@@ -1,4 +1,16 @@
 export const messages = {
+//Authors
+    //Post 
+    authorPostOk: 'Autor incorporado con éxito.',
+
+    //Put
+    authorPutOk: 'Autor modificado con éxito.',
+    authorPutFail: 'El Autor que intenta modificar no existe.',
+
+    //Delete
+    authorDeleteOk: 'Autor eliminado con éxito.',
+    authorDeleteFail: 'El Autor que intenta eliminar no existe.',
+
 //Books
     //Post 
     bookPostOk: 'Libro incorporado con éxito.',
