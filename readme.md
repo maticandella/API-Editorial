@@ -13,6 +13,7 @@ En este proyecto iré volcando todos los conocimientos adquiridos en torno a Nod
 * Express-validator
 * Mssql
 * Dotenv
+* Cors
 
 ## Autor ✒️
 
