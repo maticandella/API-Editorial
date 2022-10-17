@@ -33,7 +33,7 @@ export const GetBookById = async (req, res) => {
 
 export const CreateNewBook = async (req, res) => {
     const {idCategoria, idAutor, idIdioma, isbn, titulo, fechaPublicacion,
-        imagenTapa, numeroPaginas, editorial, precio, resenia, idUsuario } = req.body
+        imagenTapa, numeroPaginas, precio, resenia, idUsuario } = req.body
 
     try {
         const pool = await getConnection()
@@ -47,7 +47,6 @@ export const CreateNewBook = async (req, res) => {
         .input("fechaPublicacion", sql.Date, fechaPublicacion)
         .input("imagenTapa", sql.VarChar, imagenTapa)
         .input("numeroPaginas", sql.Int, numeroPaginas)
-        .input("editorial", sql.VarChar, editorial)
         .input("precio", sql.Decimal, precio)
         .input("resenia", sql.Text, resenia)
         //El Id de Usuario habría que obtenerlo
@@ -63,7 +62,7 @@ export const CreateNewBook = async (req, res) => {
 
 export const UpdateBook = async (req, res) => {
     const {idCategoria, idAutor, idIdioma, isbn, titulo, fechaPublicacion,
-        imagenTapa, numeroPaginas, editorial, precio, resenia, idUsuario } = req.body
+        imagenTapa, numeroPaginas, precio, resenia, idUsuario } = req.body
     const {id} = req.params
 
     try {
@@ -86,7 +85,6 @@ export const UpdateBook = async (req, res) => {
             .input("fechaPublicacion", sql.Date, fechaPublicacion)
             .input("imagenTapa", sql.VarChar, imagenTapa)
             .input("numeroPaginas", sql.Int, numeroPaginas)
-            .input("editorial", sql.VarChar, editorial)
             .input("precio", sql.Decimal, precio)
             .input("resenia", sql.Text, resenia)
             .input("idUsuario", sql.Int, idUsuario)

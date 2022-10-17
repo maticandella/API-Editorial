@@ -36,4 +36,7 @@ export const messages = {
     //Delete
     categorieDeleteOk: 'Categoria eliminada con éxito.',
     categorieDeleteFail: 'La Categoria que intenta eliminar no existe.',
+
+//General
+    pageNotFound: 'Esta página no existe.',
 }

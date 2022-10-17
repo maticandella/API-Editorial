@@ -5,7 +5,7 @@ import {messages} from '../Utilities/messages.js';
 
 export const validateBook = [
     //idCategoria, idAutor, idIdioma, isbn, titulo, fechaPublicacion,
-    //imagenTapa, numeroPaginas, editorial, precio, resenia, idUsuario 
+    //imagenTapa, numeroPaginas, precio, resenia, idUsuario 
     check('idCategoria')
         .exists()
         .not()
@@ -42,11 +42,6 @@ export const validateBook = [
     check('numeroPaginas')
         .exists()
         .isNumeric(),
-    check('editorial')
-        .exists()
-        .not()
-        .isEmpty()
-        .isString(),
     check('precio')
         .exists()
         .not()
@@ -70,7 +65,7 @@ export const validateBook = [
 
 export const validateCreate = [
     //idCategoria, idAutor, idIdioma, isbn, titulo, fechaPublicacion,
-    //imagenTapa, numeroPaginas, editorial, precio, resenia, idUsuario 
+    //imagenTapa, numeroPaginas, precio, resenia, idUsuario 
     check('isbn')
         .custom( async (value, {req}) => {
             //Chequeo si el ISBN ya existe para otro libro

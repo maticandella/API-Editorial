@@ -8,6 +8,8 @@ import { GetAllAuthors, GetAuthorById, CreateNewAuthor, UpdateAuthor, DeleteAuth
 import {validateBook, validateCreate} from '../Validators/books.js'
 import {validateCategorie} from '../Validators/categories.js'
 import {validateAuthor} from "../Validators/authors.js";
+import {messages} from '../Utilities/messages.js';
+import {resCodes} from '../Utilities/responseCodes.js';
 
 const router = Router()
 
@@ -43,5 +45,10 @@ router.post('/categories', validateCategorie, CreateNewCategorie)
 router.put('/categories/:id', validateCategorie, UpdateCategorie)
 
 router.delete('/categories/:id', DeleteCategorie)
+
+//General
+router.get('*', (req, res) => {
+    res.status(resCodes.NotFound).send(messages.pageNotFound)
+})
 
 export default router;
