@@ -5,6 +5,8 @@ import { CreateNewCategorie, GetAllCategories, GetCategorieById, UpdateCategorie
     from "../Controllers/categoriesController.js";
 import { GetAllAuthors, GetAuthorById, CreateNewAuthor, UpdateAuthor, DeleteAuthor } 
     from "../Controllers/authorsController.js";
+import { GetLanguageById } 
+    from "../Controllers/languagesController.js";
 import {validateBook, validateCreate} from '../Validators/books.js'
 import {validateCategorie} from '../Validators/categories.js'
 import {validateAuthor} from "../Validators/authors.js";
@@ -45,6 +47,9 @@ router.post('/categories', validateCategorie, CreateNewCategorie)
 router.put('/categories/:id', validateCategorie, UpdateCategorie)
 
 router.delete('/categories/:id', DeleteCategorie)
+
+//Languages
+router.get('/languages/:id', GetLanguageById)
 
 //General
 router.get('*', (req, res) => {
