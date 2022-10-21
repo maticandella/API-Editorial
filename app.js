@@ -3,7 +3,6 @@ import cors from "cors"
 import config from './config.js'
 import routes from './routes/routes.js'
 
-
 const app = express();
 
 //cors

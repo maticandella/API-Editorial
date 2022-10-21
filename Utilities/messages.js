@@ -39,4 +39,10 @@ export const messages = {
 
 //General
     pageNotFound: 'Esta página no existe.',
+
+//Users
+    //Post
+    userRegisterOk: 'Usuario generado con éxito.',
+    userExists: 'Ya existe un usuario para el Email ingresado.',
+    userNotExists: 'El usuario y/o la contraseña son inválidos.'
 }
