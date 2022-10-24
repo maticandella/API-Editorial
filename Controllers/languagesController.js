@@ -16,3 +16,16 @@ export const GetLanguageById = async (req, res) => {
         return res.status(resCodes.InternalServerError).send(error.message)
     }
 };
+
+export const GetAllLanguages = async (req, res) => {
+    try {
+        const pool = await getConnection()
+
+        //Con el pool hago una petición
+        const result = await pool.request().query(queries.getAllLanguages)
+        res.status(resCodes.Ok).json(result.recordset)
+        pool.close()
+    } catch (error) {
+        return res.status(resCodes.InternalServerError).send(error.message)
+    }
+};

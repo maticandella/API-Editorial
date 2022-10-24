@@ -5,7 +5,7 @@ import { CreateNewCategorie, GetAllCategories, GetCategorieById, UpdateCategorie
     from "../Controllers/categoriesController.js";
 import { GetAllAuthors, GetAuthorById, CreateNewAuthor, UpdateAuthor, DeleteAuthor } 
     from "../Controllers/authorsController.js";
-import { GetLanguageById } 
+import { GetLanguageById, GetAllLanguages } 
     from "../Controllers/languagesController.js";
 import { RegisterUser, Login, validateJwt  } 
     from "../Controllers/usersController.js";
@@ -53,6 +53,7 @@ router.delete('/categories/:id', validateJwt, DeleteCategorie)
 
 //Languages
 router.get('/languages/:id', validateJwt, GetLanguageById)
+router.get('/languages', validateJwt, GetAllLanguages)
 
 //Users
 router.post('/users/register', RegisterUser)
