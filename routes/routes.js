@@ -7,7 +7,7 @@ import { GetAllAuthors, GetAuthorById, CreateNewAuthor, UpdateAuthor, DeleteAuth
     from "../Controllers/authorsController.js";
 import { GetLanguageById, GetAllLanguages } 
     from "../Controllers/languagesController.js";
-import { RegisterUser, Login, validateJwt  } 
+import { RegisterUser, Login, validateJwt, GetUserByEmail } 
     from "../Controllers/usersController.js";
 import {validateBook, validateCreate} from '../Validators/books.js'
 import {validateCategorie} from '../Validators/categories.js'
@@ -59,6 +59,8 @@ router.get('/languages', validateJwt, GetAllLanguages)
 router.post('/users/register', RegisterUser)
 
 router.post('/users/login', Login)
+
+router.get('/users/:email', validateJwt, GetUserByEmail)
 
 //General
 router.get('*', (req, res) => {
