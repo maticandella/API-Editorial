@@ -7,7 +7,7 @@ import jwt from 'jsonwebtoken'
 import { expressjwt } from "express-jwt";
 
 //Función para obtener el Token del Usuario
-const SignToken = idUser => jwt.sign({idUser}, process.env.TOKEN_SECRET)
+const SignToken = (idUser, email) => jwt.sign({idUser, name: email}, process.env.TOKEN_SECRET)
 
 //Middleware JWT para autorizar con el token
 export const validateJwt = expressjwt({secret: process.env.TOKEN_SECRET, algorithms: ['HS256']})
@@ -38,7 +38,7 @@ export const RegisterUser = async (req, res) => {
         //Obtener el Id de Usuario generado (En la Query lo obtengo con el SELECT SCOPE_IDENTITY() AS Id)
         const idUser = result.recordset[0].Id
         //Asignar Token al nuevo Usuario
-        const signed = SignToken(idUser)
+        const signed = SignToken(idUser, email)
 
         res.status(resCodes.Created).send(signed)
         pool.close()
@@ -66,7 +66,7 @@ export const Login = async (req, res) => {
             const isMatch = await bcrypt.compare(password, user.recordset[0].Password)
             if(isMatch) {
                 //Si la contraseña es correcta
-                const signed = SignToken(user.IdUsuario)
+                const signed = SignToken(user.IdUsuario, email)
                 res.status(resCodes.Ok).send(signed)
             } else {
                 res.status(resCodes.Forbidden).send(messages.userNotExists)
@@ -75,6 +75,22 @@ export const Login = async (req, res) => {
     } catch (error) {
         return res.status(resCodes.InternalServerError).send(error.message)
     } 
+};
+
+export const GetUserByEmail = async (req, res) => {
+    const {email} = req.params
+    try {
+        const user = await FindUser(email)
+        if (!user.recordset[0]) {
+            //El usuario no existe
+            res.status(resCodes.Forbidden).send(messages.userNotExists)
+        } else {
+            res.status(resCodes.Ok).json(user.recordset[0])
+            console.log(user.recordset[0]);
+        }
+    } catch (error) {
+        res.status(resCodes.InternalServerError).send(error.message)
+    }
 };
 
 //Buscar Usuario por Email
