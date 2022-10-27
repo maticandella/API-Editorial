@@ -31,6 +31,21 @@ export const GetBookById = async (req, res) => {
     }
 };
 
+export const GetBooksByCategorie = async (req, res) => {
+    const {id} = req.params
+    try {
+        const pool = await getConnection()
+
+        const result = await pool.request()
+            .input("Id", id)
+            .query(queries.getBooksByCategorie)
+        res.status(resCodes.Ok).json(result.recordset)
+        pool.close()
+    } catch (error) {
+        return res.status(resCodes.InternalServerError).send(error.message)
+    }
+};
+
 export const CreateNewBook = async (req, res) => {
     const {idCategoria, idAutor, idIdioma, isbn, titulo, fechaPublicacion,
         imagenTapa, numeroPaginas, precio, resenia, idUsuario } = req.body

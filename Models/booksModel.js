@@ -3,6 +3,7 @@ import { text } from "express"
 export const queries = {
     getAllBooks: 'SELECT * FROM Libros',
     getBookById: 'SELECT * FROM Libros Where IdLibro = @Id',
+    getBooksByCategorie: 'SELECT * FROM Libros Where IdCategoria = @Id',
     countIsbn: 'SELECT COUNT(*) FROM Libros WHERE ISBN = @ISBN',
     createNewBook: 'INSERT INTO Libros (IdCategoria, IdAutor, IdIdioma, ISBN, Titulo, FechaPublicacion,' +
                     'ImagenTapa, NumeroPaginas, Precio, Resenia, IdUsuario)' +

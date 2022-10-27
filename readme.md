@@ -18,3 +18,7 @@ En este proyecto iré volcando todos los conocimientos adquiridos en torno a Nod
 ## Autor ✒️
 
 * **Matías Candella** - [maticandella](https://github.com/maticandella)
+
+## Pendientes en el Back :computer:
+
+* Incorporar documentación Swagger

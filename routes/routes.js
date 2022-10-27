@@ -1,5 +1,5 @@
 import { Router } from "express";
-import {GetAllBooks, GetBookById, CreateNewBook, UpdateBook, DeleteBook} 
+import {GetAllBooks, GetBookById, GetBooksByCategorie, CreateNewBook, UpdateBook, DeleteBook} 
     from '../Controllers/booksController.js'
 import { CreateNewCategorie, GetAllCategories, GetCategorieById, UpdateCategorie, DeleteCategorie } 
     from "../Controllers/categoriesController.js";
@@ -33,6 +33,8 @@ router.delete('/authors/:id', validateJwt, DeleteAuthor)
 router.get('/books', validateJwt, GetAllBooks)
 
 router.get('/books/:id', validateJwt, GetBookById)
+
+router.get('/books/categorie/:id', validateJwt, GetBooksByCategorie)
 
 router.post('/books', validateJwt, validateBook, validateCreate, CreateNewBook)
 
