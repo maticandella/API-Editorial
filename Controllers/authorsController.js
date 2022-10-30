@@ -33,7 +33,7 @@ export const GetAuthorById = async (req, res) => {
 
 export const CreateNewAuthor = async (req, res) => {
     const {nombre, apellido, idNacionalidad, nota, urlInstagram, urlTwitter, 
-    urlFacebook, urlLinkedin, urlWeb, idUsuario} = req.body
+    urlFacebook, urlLinkedin, urlWeb, idUsuario, fotoPerfil} = req.body
 
     try {
         const pool = await getConnection()
@@ -49,6 +49,7 @@ export const CreateNewAuthor = async (req, res) => {
         .input("urlLinkedin", sql.VarChar, urlLinkedin)
         .input("urlWeb", sql.VarChar, urlWeb)
         .input("idUsuario", sql.Int, idUsuario)
+        .input("fotoPerfil", sql.VarChar, fotoPerfil)
         .query(queries.createNewAuthor)
         
         res.status(resCodes.Created).send(messages.authorPostOk)
@@ -60,7 +61,7 @@ export const CreateNewAuthor = async (req, res) => {
 
 export const UpdateAuthor = async (req, res) => {
     const {nombre, apellido, idNacionalidad, nota, urlInstagram, urlTwitter, 
-        urlFacebook, urlLinkedin, urlWeb, idUsuario} = req.body
+        urlFacebook, urlLinkedin, urlWeb, idUsuario, fotoPerfil} = req.body
     const {id} = req.params
 
     try {
@@ -85,6 +86,7 @@ export const UpdateAuthor = async (req, res) => {
             .input("urlLinkedin", sql.VarChar, urlLinkedin)
             .input("urlWeb", sql.VarChar, urlWeb)
             .input("idUsuario", sql.Int, idUsuario)
+            .input("fotoPerfil", sql.VarChar, fotoPerfil)
             .query(queries.updateAuthor)
             res.status(resCodes.Ok).send(messages.authorPutOk)
         } else {

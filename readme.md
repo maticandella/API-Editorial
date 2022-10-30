@@ -1,10 +1,10 @@
-# API Editoriales
+# API Editorial
 
 Esta API permite gestionar las operaciones del lado del servidor para una Editorial de Libros.
 
 ## Proposito 🚀
 
-En este proyecto iré volcando todos los conocimientos adquiridos en torno a Node.js.
+En este proyecto iré incorporando todos los conocimientos adquiridos en torno a Node.js y lógica de backend.
 
 ## Construido con 🛠️
 
